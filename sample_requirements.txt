@@ -1,0 +1,9 @@
+# Sample requirements file for dep-vuln-analyzer demo
+#
+# These versions are intentionally chosen to have a reasonable chance of
+# known vulnerabilities in public databases so the reports are interesting.
+
+django==3.2.0
+requests==2.25.0
+flask==1.1.2
+

@@ -1,0 +1,40 @@
+name: Dependency Vulnerability Scan
+
+on:
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  dep-vuln-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install .
+
+      - name: Run dep-vuln-analyzer
+        run: |
+          python main.py --file sample_requirements.txt --output dep-report.json
+          continue-on-error: true
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dep-vuln-analyzer-reports
+          path: |
+            dep-report.json
+            dep-report.json.md
+
