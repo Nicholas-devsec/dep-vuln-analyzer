@@ -1,4 +1,4 @@
-## dep-vuln-analyzer
+## Dependency Vulnerability Analyzer
 
 `dep-vuln-analyzer` is a lightweight, Python-based dependency vulnerability analysis tool.
 It simulates core Software Composition Analysis (SCA) behavior by reading a `requirements.txt`,
@@ -286,7 +286,7 @@ This project is intentionally minimal but structured like a production tool:
 
 - Modular Python package with clear separation of concerns.
 - Type hints and dataclasses for clarity and maintainability.
-- Clean CLI interface designed for both humans and CI systems.
+- SimpleCLI interface designed for both humans and CI systems.
 
 
 
